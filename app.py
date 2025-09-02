@@ -19,19 +19,19 @@ app = Flask(__name__)
 
 def is_valid_token(token: str) -> bool:
     """
-    ตรวจสอบ token จาก Firebase โดยโหลดเฉพาะ path /tokens/<token>.json
+    ตรวจสอบ token จาก Firebase (อยู่ใต้ node /tokens)
     """
     try:
         url = f"{FIREBASE_URL}/tokens/{token}.json"
         res = requests.get(url, timeout=5)
-        if res.status_code == 200:
-            data = res.json()
-            if data is not None and isinstance(data, dict):  # ต้องเป็น object
-                return True
+        # token ถูกต้องถ้ามี object ใน Firebase
+        if res.status_code == 200 and res.json() is not None:
+            return True
         return False
     except Exception as e:
         print("Firebase error:", e)
         return False
+
 
 
 def get_phone_from_token(token: str) -> str:
