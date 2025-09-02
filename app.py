@@ -3,7 +3,7 @@ import os
 import requests
 from dotenv import load_dotenv
 
-# โหลด .env (สำหรับ local dev)
+# โหลด .env (สำหรับ local dev) 
 load_dotenv()
 
 # ------------------- Config -------------------
@@ -37,7 +37,7 @@ def get_user_from_firebase(token: str):
         return None
 
 def send_sms_via_vonage(to_number: str, message: str):
-    url = "https://rest.nexmo.com/sms/json"
+    url = "https://rest.nexmo.com/sms/json" 
     payload = {
         "api_key": VONAGE_API_KEY,
         "api_secret": VONAGE_API_SECRET,
