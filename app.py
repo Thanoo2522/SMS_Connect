@@ -34,7 +34,7 @@ def get_phone_from_token(token: str) -> str:
     ดึงหมายเลขโทรศัพท์จาก Firebase ตาม token
     """
     try:
-        url = f"{FIREBASE_URL}/tokens/{token}/phone.json"
+        url = f"{FIREBASE_URL}/token/{token}/phone.json"
         res = requests.get(url, timeout=5)
         if res.status_code == 200:
             return res.json()
