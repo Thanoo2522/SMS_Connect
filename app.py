@@ -18,6 +18,10 @@ API_SECRET = os.getenv("API_SECRET")
 
 app = Flask(__name__)
 
+
+print("Vonage API Key:", VONAGE_API_KEY)
+print("Vonage API Secret:", VONAGE_API_SECRET)
+print("Vonage Sender:", VONAGE_SENDER)
 # ------------------- Helper -------------------
 
 def get_user_from_firebase(token: str):
